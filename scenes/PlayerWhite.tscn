@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/White.png" type="Texture" id=2]
+[ext_resource path="res://scripts/PlayerBlue.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.5, 31.5 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+enum _MotionType {
+	SLIDE,  # uses move_and_slide
+	COLLIDE # uses move_and_collide
+}
+
+signal camera_shake_requested
+
+export(float) var Speed
+export(float) var Friction
+export(float) var Gravity
+export(float) var JumpSpeed
+export(bool) var Reverse
+export(bool) var TargetParent # If set true, will use parent node as traget.
+export(NodePath) var Target # Will be ignored if TargetParent is true.
+export(_MotionType) var MotionType
+
+var _velocity : Vector2 = Vector2.ZERO
+var _is_in_air = false
+var _target = null
+
+func _ready():
+	_target = get_parent() if TargetParent else get_node(Target)
+	assert(_target != null)
+	assert(_target is KinematicBody2D)
+
+func _physics_process(delta):
+	var velocity : Vector2 = Vector2.ZERO
+	
+#	if Input.is_action_just_pressed(\"ui_select\"):
+#		emit_signal(\"camera_shake_requested\")
+
+	velocity.x = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
+	velocity.y = Input.get_action_strength(\"ui_up\")
+	
+	if Reverse:
+		velocity.x *= -1
+	
+	if velocity.x != 0:
+		_velocity.x = velocity.x * Speed
+	else:
+		_velocity.x = lerp(_velocity.x, 0, Friction * delta)
+
+	if velocity.y != 0 && !_is_in_air:
+		_velocity.y = -velocity.y * JumpSpeed
+	else:
+		_velocity.y += Gravity * delta
+
+	if MotionType == _MotionType.SLIDE:
+		_velocity = _target.move_and_slide(_velocity, Vector2.UP)
+	else:
+		# warning-ignore:return_value_discarded
+		_target.move_and_collide(_velocity * delta)
+
+	_is_in_air = !_target.is_on_floor()
+
+"
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 1.0
+
+[node name="PlayerBlue" type="KinematicBody2D"]
+collision_mask = 6
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PlayerController" parent="." instance=ExtResource( 1 )]
+script = SubResource( 2 )
+Speed = 800.0
+Friction = 10.0
+Gravity = 2000.0
+JumpSpeed = 1000.0
+TargetParent = true
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"White",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )

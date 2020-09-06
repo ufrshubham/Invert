@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Level1_YouAreYou.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LevelUp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerWhite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PlayerBlack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tres/Tiles.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 8 )
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_quadrant_size = 64
+format = 1
+tile_data = PoolIntArray( -65538, 4, 0, -65537, 4, 0, -131072, 4, 0, -131071, 4, 0, -131070, 4, 0, -131069, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -131059, 4, 0, -131058, 4, 0, -131057, 4, 0, -131056, 4, 0, -131055, 4, 0, -131054, 4, 0, -131053, 4, 0, -131052, 4, 0, -131051, 4, 0, -131050, 4, 0, -2, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 4, 0, -65516, 4, 0, -65515, 4, 0, -65514, 4, 0, 65534, 4, 0, 65535, 4, 0, 0, 4, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 4, 0, 11, 7, 0, 12, 7, 0, 13, 7, 0, 14, 7, 0, 15, 7, 0, 16, 7, 0, 17, 7, 0, 18, 7, 0, 19, 7, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 5, 0, 65546, 11, 0, 65556, 3, 0, 65557, 4, 0, 65558, 4, 0, 196606, 4, 0, 196607, 4, 0, 131072, 5, 0, 131082, 11, 0, 131092, 3, 0, 131093, 4, 0, 131094, 4, 0, 262142, 4, 0, 262143, 4, 0, 196608, 5, 0, 196618, 11, 0, 196628, 3, 0, 196629, 4, 0, 196630, 4, 0, 327678, 4, 0, 327679, 4, 0, 262144, 4, 0, 262145, 14, 0, 262146, 14, 0, 262147, 15, 0, 262154, 11, 0, 262161, 13, 0, 262162, 14, 0, 262163, 14, 0, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 393214, 4, 0, 393215, 4, 0, 327680, 5, 0, 327690, 11, 0, 327700, 3, 0, 327701, 4, 0, 327702, 4, 0, 458750, 4, 0, 458751, 4, 0, 393216, 5, 0, 393223, 13, 0, 393224, 14, 0, 393225, 14, 0, 393226, 4, 0, 393227, 14, 0, 393228, 14, 0, 393229, 15, 0, 393236, 3, 0, 393237, 4, 0, 393238, 4, 0, 524286, 4, 0, 524287, 4, 0, 458752, 4, 0, 458753, 14, 0, 458754, 14, 0, 458755, 14, 0, 458756, 15, 0, 458762, 11, 0, 458768, 13, 0, 458769, 14, 0, 458770, 14, 0, 458771, 14, 0, 458772, 4, 0, 458773, 4, 0, 458774, 4, 0, 589822, 4, 0, 589823, 4, 0, 524288, 5, 0, 524298, 11, 0, 524308, 3, 0, 524309, 4, 0, 524310, 4, 0, 655358, 4, 0, 655359, 4, 0, 589824, 5, 0, 589834, 11, 0, 589844, 3, 0, 589845, 4, 0, 589846, 4, 0, 720894, 4, 0, 720895, 4, 0, 655360, 4, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 4, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 4, 0, 655381, 4, 0, 655382, 4, 0, 786430, 4, 0, 786431, 4, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 4, 0, 720913, 4, 0, 720914, 4, 0, 720915, 4, 0, 720916, 4, 0, 720917, 4, 0, 720918, 4, 0, 851966, 4, 0, 851967, 4, 0, 786432, 4, 0, 786433, 4, 0, 786434, 4, 0, 786435, 4, 0, 786436, 4, 0, 786437, 4, 0, 786438, 4, 0, 786439, 4, 0, 786440, 4, 0, 786441, 4, 0, 786442, 4, 0, 786443, 4, 0, 786444, 4, 0, 786445, 4, 0, 786446, 4, 0, 786447, 4, 0, 786448, 4, 0, 786449, 4, 0, 786450, 4, 0, 786451, 4, 0, 786452, 4, 0, 786453, 4, 0, 786454, 4, 0 )
+
+[node name="White" parent="." instance=ExtResource( 3 )]
+position = Vector2( 607.555, 102.659 )
+
+[node name="Black" parent="." instance=ExtResource( 5 )]
+position = Vector2( 736.271, 102.215 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 672, 96 )
+zoom = Vector2( 0.25, 0.25 )
+limit_left = 0
+limit_top = 0
+limit_right = 1344
+limit_bottom = 720
+limit_smoothed = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+Player1 = NodePath("../White")
+Player2 = NodePath("../Black")
+Zoom_Max = 1.0
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Label" parent="Control"]
+margin_left = 138.974
+margin_top = 208.182
+margin_right = 266.974
+margin_bottom = 240.182
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0.929412, 1 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelUp" parent="Control/Play" instance=ExtResource( 2 )]
+position = Vector2( -43.9623, 16.3421 )
+NextLevel = ExtResource( 1 )
+type = 1
+
+[node name="Quit" type="Label" parent="Control"]
+margin_left = 1080.21
+margin_top = 402.755
+margin_right = 1208.21
+margin_bottom = 434.755
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0.929412, 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelUp" parent="Control/Quit" instance=ExtResource( 2 )]
+position = Vector2( 168.835, 14.0562 )
+type = 2
