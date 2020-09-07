@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 31 )
 
-[node name="LevelUp" type="Area2D"]
+[node name="LevelUp" type="Area2D" groups=[
+"camera_shaker",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

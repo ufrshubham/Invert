@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/LevelUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Level2_NoTouching.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tres/Tiles.tres" type="TileSet" id=6]
 [ext_resource path="res://scripts/LevelHandler.gd" type="Script" id=7]
+[ext_resource path="res://assets/bgm/Its-Raining-Pixels.ogg" type="AudioStream" id=8]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 7 )
@@ -41,4 +42,15 @@ Zoom_Max = 1.0
 [node name="LevelUp" parent="." instance=ExtResource( 1 )]
 position = Vector2( 287.751, 223.928 )
 NextLevel = ExtResource( 5 )
-[connection signal="black_collision" from="White" to="." method="_on_White_black_collision"]
+
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+wait_time = 0.8
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 8 )
+volume_db = -15.0
+autoplay = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

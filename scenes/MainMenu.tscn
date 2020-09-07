@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Level1_YouAreYou.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/LevelUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/PlayerWhite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PlayerBlack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/bgm/Up-the-Ladder.ogg" type="AudioStream" id=6]
 [ext_resource path="res://tres/Tiles.tres" type="TileSet" id=7]
 [ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=8]
 
@@ -81,3 +82,8 @@ __meta__ = {
 [node name="LevelUp" parent="Control/Quit" instance=ExtResource( 2 )]
 position = Vector2( 168.835, 14.0562 )
 type = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+autoplay = true

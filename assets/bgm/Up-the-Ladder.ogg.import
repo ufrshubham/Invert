@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Up-the-Ladder.ogg-59d5379a11d48ea040a3523b77cb219a.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/Up-the-Ladder.ogg"
+dest_files=[ "res://.import/Up-the-Ladder.ogg-59d5379a11d48ea040a3523b77cb219a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

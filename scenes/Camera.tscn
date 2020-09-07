@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/TwoCharacterCamera.gd" type="Script" id=1]
 
 [node name="Camera2D" type="Camera2D"]
+pause_mode = 2
 position = Vector2( 2107, 189 )
 current = true
 limit_bottom = 1920
@@ -13,3 +14,7 @@ Player1 = NodePath("../PlayerBlue")
 Player2 = NodePath("../PlayerRed")
 Zoom_Min = 1.0
 Zoom_Max = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

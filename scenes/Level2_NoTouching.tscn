@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/LevelHandler.gd" type="Script" id=1]
+[ext_resource path="res://assets/bgm/Its-Raining-Pixels.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scenes/PlayerWhite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/LevelUp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/PlayerBlack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tres/Tiles.tres" type="TileSet" id=7]
+[ext_resource path="res://scenes/Level3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 9 )
 
 [node name="Level2_NoTouching" type="Node2D"]
 script = ExtResource( 1 )
@@ -37,3 +44,37 @@ Zoom_Max = 1.0
 
 [node name="LevelUp" parent="." instance=ExtResource( 4 )]
 position = Vector2( 287.831, 352.995 )
+NextLevel = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+volume_db = -15.0
+autoplay = true
+
+[node name="NoNo" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NoNo"]
+margin_left = 287.831
+margin_top = 128.0
+margin_right = 1055.83
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Big No No!!!"
+align = 1
+valign = 1
+[connection signal="reset_players" from="LevelUp" to="." method="_on_LevelUp_reset_players"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

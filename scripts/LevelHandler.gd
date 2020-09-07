@@ -9,13 +9,23 @@ func _ready() -> void:
 	_white_player_pos = $White.get_position()
 	_black_player_pos = $Black.get_position()
 	
-	$White.connect("black_collision", self, "_reset_player_position")
+	$White.connect("black_collision", self, "_on_White_black_collision")
 	
 
 func _on_White_black_collision() -> void:
-	_reset_player_position()
+	$Timer.start()
+	get_tree().paused = true
 
 
 func _reset_player_position():
 	$White.set_position(_white_player_pos)
 	$Black.set_position(_black_player_pos)
+
+
+func _on_Timer_timeout() -> void:
+	_reset_player_position()
+	get_tree().paused = false
+
+
+func _on_LevelUp_reset_players() -> void:
+	_reset_player_position()
