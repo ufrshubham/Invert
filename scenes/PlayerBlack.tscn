@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Black.png" type="Texture" id=2]
+[ext_resource path="res://scripts/PlayerBlack.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.5, 31.5 )
@@ -64,6 +65,8 @@ func _physics_process(delta):
 
 	_is_in_air = !_target.is_on_floor()
 
+func zero_velocity():
+	_velocity = Vector2.ZERO
 "
 
 [sub_resource type="CircleShape2D" id=3]
@@ -71,6 +74,7 @@ radius = 1.0
 
 [node name="PlayerBlack" type="KinematicBody2D"]
 collision_mask = 4
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }

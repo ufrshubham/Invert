@@ -19,6 +19,9 @@ func _on_White_black_collision() -> void:
 
 
 func _reset_player_position():
+	$White.zero_velocity()
+	$Black.zero_velocity()
+	
 	$White.set_position(_white_player_pos)
 	$Black.set_position(_black_player_pos)
 

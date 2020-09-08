@@ -61,6 +61,8 @@ func _physics_process(delta):
 
 	_is_in_air = !_target.is_on_floor()
 
+func zero_velocity():
+	_velocity = Vector2.ZERO
 "
 
 [node name="PlayerController" type="Node2D"]

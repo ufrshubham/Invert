@@ -2,8 +2,9 @@
 
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/White.png" type="Texture" id=2]
-[ext_resource path="res://scripts/PlayerBlue.gd" type="Script" id=3]
+[ext_resource path="res://scripts/PlayerWhite.gd" type="Script" id=3]
 [ext_resource path="res://assets/bgm/CRASH 1.wav" type="AudioStream" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.5, 31.5 )
@@ -67,6 +68,8 @@ func _physics_process(delta):
 
 	_is_in_air = !_target.is_on_floor()
 
+func zero_velocity():
+	_velocity = Vector2.ZERO
 "
 
 [sub_resource type="CircleShape2D" id=3]

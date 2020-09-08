@@ -10,4 +10,6 @@ func _process(_delta: float) -> void:
 		$AudioStreamPlayer.play()
 		emit_signal("camera_shake_requested")
 		emit_signal("black_collision")
-	
+
+func zero_velocity():
+	$PlayerController.zero_velocity()
