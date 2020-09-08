@@ -13,6 +13,7 @@ signal reset_players
 signal camera_shake_requested
 
 func go_to_next_scene():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(NextLevel)
 
 

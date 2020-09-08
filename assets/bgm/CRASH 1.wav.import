@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CRASH 1.wav-db49d3f7706ecff0b7797558ba8ad68e.sample"
+
+[deps]
+
+source_file="res://assets/bgm/CRASH 1.wav"
+dest_files=[ "res://.import/CRASH 1.wav-db49d3f7706ecff0b7797558ba8ad68e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

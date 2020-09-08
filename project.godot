@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Mirror"
+config/name="InVert"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 

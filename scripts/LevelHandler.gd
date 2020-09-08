@@ -9,6 +9,7 @@ func _ready() -> void:
 	_white_player_pos = $White.get_position()
 	_black_player_pos = $Black.get_position()
 	
+# warning-ignore:return_value_discarded
 	$White.connect("black_collision", self, "_on_White_black_collision")
 	
 

@@ -14,7 +14,7 @@ enum _MotionType {
 	COLLIDE # uses move_and_collide
 }
 
-signal camera_shake_requested
+#signal camera_shake_requested
 
 export(float) var Speed
 export(float) var Friction
