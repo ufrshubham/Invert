@@ -1,15 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Level1_YouAreYou.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/LevelUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/PlayerWhite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PlayerBlack.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/bgm/Up-the-Ladder.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/bgm/MELODY 1.wav" type="AudioStream" id=6]
 [ext_resource path="res://tres/Tiles.tres" type="TileSet" id=7]
 [ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 8 )
 
@@ -50,12 +54,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title" type="Label" parent="Control"]
+margin_left = 544.353
+margin_top = 7.05679
+margin_right = 894.353
+margin_bottom = 57.0568
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "InVert"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Play" type="Label" parent="Control"]
 margin_left = 138.974
 margin_top = 208.182
 margin_right = 266.974
 margin_bottom = 240.182
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 1, 0.929412, 1 )
 text = "Play"
 __meta__ = {
@@ -72,7 +88,7 @@ margin_left = 1080.21
 margin_top = 402.755
 margin_right = 1208.21
 margin_bottom = 434.755
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 1, 0.929412, 1 )
 text = "Quit"
 __meta__ = {
@@ -85,5 +101,5 @@ type = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -15.0
+volume_db = -20.0
 autoplay = true

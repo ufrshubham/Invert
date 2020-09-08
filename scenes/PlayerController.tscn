@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sfx/JUMP 2.wav" type="AudioStream" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -8,7 +10,7 @@ enum _MotionType {
 	COLLIDE # uses move_and_collide
 }
 
-signal camera_shake_requested
+#signal camera_shake_requested
 
 export(float) var Speed
 export(float) var Friction
@@ -47,6 +49,7 @@ func _physics_process(delta):
 
 	if velocity.y != 0 && !_is_in_air:
 		_velocity.y = -velocity.y * JumpSpeed
+		$AudioStreamPlayer.play()
 	else:
 		_velocity.y += Gravity * delta
 
@@ -62,3 +65,7 @@ func _physics_process(delta):
 
 [node name="PlayerController" type="Node2D"]
 script = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -25.0
